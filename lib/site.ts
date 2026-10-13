@@ -3,7 +3,7 @@
  * Every page and component reads from here so details stay consistent.
  */
 
-const rawUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const rawUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ironofficial.pro";
 
 export const siteConfig = {
   name: "IRON TV MAX",
