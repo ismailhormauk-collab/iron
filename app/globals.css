@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy-950: #070d1d;
+  --color-navy-900: #0c1630;
+  --color-navy-800: #13213f;
+  --color-navy-700: #1d2e54;
+  --color-navy-600: #2a3d68;
+
+  --color-violet-brand: #6a3cf0;
+  --color-violet-soft: #8f6bff;
+  --color-violet-tint: #f1ecff;
+  --color-electric: #2459e8;
+  --color-electric-tint: #e8efff;
+  --color-cyan-brand: #22c3e6;
+
+  --color-ink: #0e1630;
+  --color-body: #47506a;
+  --color-muted: #6b7390;
+  --color-line: #e4e7f0;
+  --color-paper: #ffffff;
+  --color-paper-soft: #f6f7fb;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), var(--font-jakarta), ui-sans-serif, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(14, 22, 48, 0.04), 0 8px 24px -12px rgba(14, 22, 48, 0.12);
+  --shadow-card-hover: 0 2px 4px rgba(14, 22, 48, 0.05), 0 22px 40px -18px rgba(54, 40, 160, 0.28);
+  --shadow-cta: 0 10px 30px -10px rgba(90, 60, 240, 0.6);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-violet-brand);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@utility bg-brand-gradient {
+  background-image: linear-gradient(120deg, #6a3cf0 0%, #3d4ff0 55%, #2459e8 100%);
+}
+
+@utility text-brand-gradient {
+  background-image: linear-gradient(100deg, #b49cff 0%, #7fb4ff 50%, #5fe0f5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes progress {
+  from { transform: scaleX(0.18); }
+  to { transform: scaleX(0.62); }
+}
+
+@utility animate-float {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@utility animate-progress {
+  animation: progress 9s ease-in-out infinite alternate;
+  transform-origin: left;
+}
